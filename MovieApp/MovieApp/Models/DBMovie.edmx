@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MoiveTDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MoiveTDB.dbo.FinancialStats' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FinancialStats">
+          <Key>
+            <PropertyRef Name="AverageTicketProfit" />
+            <PropertyRef Name="AverageFoodItemProfit" />
+          </Key>
+          <Property Name="AverageTicketProfit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AverageFoodItemProfit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MoiveTDB.dbo.FoodItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FoodItem">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="SalePrice" />
+            <PropertyRef Name="UniPrice" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Profit" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UniPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Profit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MoiveTDB.dbo.Ticket' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="MovieName" />
+            <PropertyRef Name="SalePrice" />
+            <PropertyRef Name="StudioCutPercentage" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Profit" />
+            <PropertyRef Name="ProfitPerItem" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="MovieName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SalePrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StudioCutPercentage" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Profit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ProfitPerItem" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MoiveTDBModelStoreContainer">
+          <EntitySet Name="FinancialStats" EntityType="Self.FinancialStats" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FinancialStats].[AverageTicketProfit] AS [AverageTicketProfit], 
+    [FinancialStats].[AverageFoodItemProfit] AS [AverageFoodItemProfit]
+    FROM [dbo].[FinancialStats] AS [FinancialStats]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FoodItem" EntityType="Self.FoodItem" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FoodItem].[id] AS [id], 
+    [FoodItem].[Name] AS [Name], 
+    [FoodItem].[SalePrice] AS [SalePrice], 
+    [FoodItem].[UniPrice] AS [UniPrice], 
+    [FoodItem].[Quantity] AS [Quantity], 
+    [FoodItem].[Profit] AS [Profit]
+    FROM [dbo].[FoodItem] AS [FoodItem]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Ticket].[id] AS [id], 
+    [Ticket].[MovieName] AS [MovieName], 
+    [Ticket].[SalePrice] AS [SalePrice], 
+    [Ticket].[StudioCutPercentage] AS [StudioCutPercentage], 
+    [Ticket].[Quantity] AS [Quantity], 
+    [Ticket].[Profit] AS [Profit], 
+    [Ticket].[ProfitPerItem] AS [ProfitPerItem]
+    FROM [dbo].[Ticket] AS [Ticket]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MoiveTDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FinancialStat">
+          <Key>
+            <PropertyRef Name="AverageTicketProfit" />
+            <PropertyRef Name="AverageFoodItemProfit" />
+          </Key>
+          <Property Name="AverageTicketProfit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="AverageFoodItemProfit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodItem">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="SalePrice" />
+            <PropertyRef Name="UniPrice" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Profit" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="UniPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Profit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="MovieName" />
+            <PropertyRef Name="SalePrice" />
+            <PropertyRef Name="StudioCutPercentage" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Profit" />
+            <PropertyRef Name="ProfitPerItem" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="MovieName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SalePrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StudioCutPercentage" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Profit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ProfitPerItem" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MoiveTDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FinancialStats" EntityType="Self.FinancialStat" />
+          <EntitySet Name="FoodItems" EntityType="Self.FoodItem" />
+          <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MoiveTDBModelStoreContainer" CdmEntityContainer="MoiveTDBEntities">
+          <EntitySetMapping Name="FinancialStats">
+            <EntityTypeMapping TypeName="MoiveTDBModel.FinancialStat">
+              <MappingFragment StoreEntitySet="FinancialStats">
+                <ScalarProperty Name="AverageTicketProfit" ColumnName="AverageTicketProfit" />
+                <ScalarProperty Name="AverageFoodItemProfit" ColumnName="AverageFoodItemProfit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodItems">
+            <EntityTypeMapping TypeName="MoiveTDBModel.FoodItem">
+              <MappingFragment StoreEntitySet="FoodItem">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="UniPrice" ColumnName="UniPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="MoiveTDBModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MovieName" ColumnName="MovieName" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="StudioCutPercentage" ColumnName="StudioCutPercentage" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="ProfitPerItem" ColumnName="ProfitPerItem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
